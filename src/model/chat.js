@@ -19,8 +19,8 @@ const chatSchema = new mongoose.Schema(
     created_at: { type: Date, default: Date.now },
     status: {
       type: Number,
-      enum: [0, 1, 2],
-      default: 0,
+      enum: [1, 2, 3],
+      default: 1,
     },
   },
   { versionKey: false }

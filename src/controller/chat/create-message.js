@@ -14,15 +14,18 @@ export const createMessage = async (req, res) => {
     const user = await User.findById({ _id: req.body.sender });
     if (user) {
       const contact = user.contact;
+      console.log(contact);
 
       const check = contact.includes(req.body.receiver);
+      console.log(check);
 
       if (!check) {
         const sender = await User.findByIdAndUpdate(
-          { _id: req.body.receiver },
+          { _id: req.body.sender },
           { $push: { contact: req.body.receiver } },
           { new: true }
         );
+        console.log(sender);
       }
     } else {
       responseHandler(res, 500, "No user found", false);

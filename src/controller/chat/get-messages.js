@@ -5,15 +5,16 @@ export const getMessage = async (req, res) => {
   try {
     const page = req.query.page;
     const limit = req.query.limit;
+    const id = req.query.id;
     const totalDocs = await Chat.find({
-      $or: [{ sender: req.body.id }, { receiver: req.body.id }],
+      $or: [{ sender: id }, { receiver: id }],
     });
     const len = totalDocs.length;
     console.log(len);
     const totalPages = Math.ceil(len / limit);
     console.log(totalPages);
     const message = await Chat.find({
-      $or: [{ sender: req.body.id }, { receiver: req.body.id }],
+      $or: [{ sender: id }, { receiver: id }],
     })
       .skip((page - 1) * limit)
       .limit(limit)

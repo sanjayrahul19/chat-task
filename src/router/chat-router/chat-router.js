@@ -14,4 +14,4 @@ chatRouter.delete("/delete/:id", messageDelete);
 chatRouter.patch("/delivered/:id", deliveredStatus);
 chatRouter.patch("/seen/:id", seenStatus);
 chatRouter.get("/get-message", getMessage);
-chatRouter.get("/home", chatHome);
+chatRouter.get("/home/:id", chatHome);

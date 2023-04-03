@@ -1,5 +1,5 @@
 import { mongoose } from "mongoose";
-const url = "mongodb://localhost:27017/review-2";
+const url = "mongodb://localhost:27017/testModel";
 
 mongoose.set("strictQuery", true);
 export const connectDB = async () => {

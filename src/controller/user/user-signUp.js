@@ -33,11 +33,11 @@ export const userSignUp = async (req, res) => {
           200,
           "Account created successfully",
           true,
-          token,
           {
             _id: users._id,
             name: users.name,
             username: users.username,
+            token: token,
           }
         );
       }

@@ -10,10 +10,11 @@ export const userLogin = async (req, res) => {
       const password = await bcrypt.compare(req.body.password, user.password);
       if (password) {
         const token = await jwt.sign({ id: user._id }, "sanjay");
-        return responseHandler(res, 200, "LoggedIn Successfully", true, token, {
-          name: user.name,
+        return responseHandler(res, 200, "LoggedIn Successfully", true, {
           _id: user._id,
+          name: user.name,
           username: user.username,
+          token: token,
         });
       } else {
         return responseHandler(res, 401, "Incorrect password", false);
